@@ -30,7 +30,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     background-color: var(--primary);
     margin-left: 10%;
     margin-right: 10%;
@@ -47,6 +47,8 @@ h1 {
     flex-direction: column-reverse;
     height: 100vh;
     transform: translateY(26.8vw);
+    margin-left: 1vw;
+    margin-right: 1vw;
     transition: 0.2s;
 }
 
@@ -57,4 +59,38 @@ h1 {
     text-align: center;
     margin-top: -0.2vw;
     margin-bottom: -0.2vw;
+    opacity: 0;
+}
+
+/* Cookie Button */
+.cookieButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+    z-index: 100;
+}
+
+.cookieButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: var(--primary);
+    user-select: none;
+    z-index: 101;
+    transition: 0.5s;
+    height: 5vw;
+    width: 30vw;
+}
+
+.cookieButtonDiv:hover {
+    background-color: var(--accent);
+    cursor: pointer;
+}
+
+.cookieButtonDiv:active {
+    scale: 0.8;
 }

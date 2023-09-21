@@ -2,7 +2,6 @@ let cookies = 0;
 let grandmas = 0;
 
 
-
 function cookieClick() {
     cookies++;
     numberToOdometer(cookies);
@@ -24,9 +23,9 @@ function numberToOdometer(number) {
 
 
     //log
-    console.log("Number: " + number);
-    console.log("Digits: " + digits);
-    console.log("Digit Array: " + digitArray);
+    // console.log("Number: " + number);
+    // console.log("Digits: " + digits);
+    // console.log("Digit Array: " + digitArray);
 
     //map the amount of digits to the amount of odometer digits hide the rest
     let odometerDigits = document.getElementsByClassName("zerosPlaceHolders");
@@ -34,16 +33,16 @@ function numberToOdometer(number) {
     for (let i = 0; i < odometerDigits.length; i++) {
         if (i < digits) {
             odometerDigits[i].style.display = "block";
-            console.log("Displaying digit " + i);
+            // console.log("Displaying digit " + i);
         } else {
             odometerDigits[i].style.display = "none";
-            console.log("Hiding digit " + i);
+            // console.log("Hiding digit " + i);
         }
     }
 
     //translateY the odometer digits to the number
     for (let i = 0; i < digitArray.length+1; i++){
-        console.log("Setting " + digitArray[i] + " to " + i);
+        // console.log("Setting " + digitArray[i] + " to " + i);
 
         odometerDigits[i].style.transform = "translateY(" + digitToPosition(parseInt(digitArray[i])+1) + "vw)";
 
