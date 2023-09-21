@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+:root {
+    --text: #1e0e0b;
+    --background: #fcf8f8;
+    --primary: #6f342a;
+    --secondary: #e6c3bc;
+    --accent: #9b493b;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--text);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 5vw;
+    text-align: center;
+}
+
+
+/* Odometer */
+.cookieCounter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--primary);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    height: 25vw;
+    border-radius: 5vw;
+}
+
+
+.zerosPlaceHolders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    transform: translateY(2.5vw);
+}
+
+.odometerText {
+    font-size: 5.5vw;
+    color: var(--text);
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    margin-top: -0.2vw;
+    margin-bottom: -0.2vw;
+}

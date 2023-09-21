@@ -5,14 +5,471 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Cookies</h1>
-    <p id="cookies" onclick="bakeCookie()">Click me to bake a cookie</p>
-    <h1>Grandmas</h1>
-    <p id="grandmas">Grandmas: 0</p>
 
-    <button onclick="bakeCookie()">Bake Cookie</button>
-    <button onclick="buyGrandma()">Buy Grandma</button>
+    <!-- Main Cookie Counter Odometer -->
+    <div class="cookieCounter">
+        <div class="zerosPlaceHolders" id="ones">
+            <div class="verticalWheelOnes">
+                <div class="number1InOnes">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InOnes">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InOnes">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InOnes">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InOnes">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InOnes">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InOnes">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InOnes">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InOnes">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InOnes">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="tens">
+            <div class="verticalWheelTens">
+                <div class="number1InTens">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InTens">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InTens">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InTens">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InTens">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InTens">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InTens">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InTens">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InTens">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InTens">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="hundreds">
+            <div class="verticalWheelHundreds">
+                <div class="number1InHundreds">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InHundreds">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InHundreds">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InHundreds">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InHundreds">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InHundreds">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InHundreds">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InHundreds">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InHundreds">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InHundreds">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="thousands">
+            <div class="verticalWheelThousands">
+                <div class="number1InThousands">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InThousands">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InThousands">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InThousands">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InThousands">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InThousands">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InThousands">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InThousands">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InThousands">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InThousands">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="tensOfThousands">
+            <div class="verticalWheelTensOfThousands">
+                <div class="number1InTensOfThousands">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InTensOfThousands">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InTensOfThousands">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InTensOfThousands">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InTensOfThousands">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InTensOfThousands">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InTensOfThousands">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InTensOfThousands">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InTensOfThousands">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InTensOfThousands">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="hundredsOfThousands">
+            <div class="verticalWheelHundredsOfThousands">
+                <div class="number1InHundredsOfThousands">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InHundredsOfThousands">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InHundredsOfThousands">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InHundredsOfThousands">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InHundredsOfThousands">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InHundredsOfThousands">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InHundredsOfThousands">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InHundredsOfThousands">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InHundredsOfThousands">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InHundredsOfThousands">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="millions">
+            <div class="verticalWheelMillions">
+                <div class="number1InMillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InMillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InMillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InMillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InMillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InMillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InMillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InMillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InMillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InMillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="tensOfMillions">
+            <div class="verticalWheelTensOfMillions">
+                <div class="number1InTensOfMillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InTensOfMillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InTensOfMillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InTensOfMillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InTensOfMillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InTensOfMillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InTensOfMillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InTensOfMillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InTensOfMillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InTensOfMillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="hundredsOfMillions">
+            <div class="verticalWheelHundredsOfMillions">
+                <div class="number1InHundredsOfMillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InHundredsOfMillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InHundredsOfMillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InHundredsOfMillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InHundredsOfMillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InHundredsOfMillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InHundredsOfMillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InHundredsOfMillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InHundredsOfMillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InHundredsOfMillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="billions">
+            <div class="verticalWheelBillions">
+                <div class="number1InBillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InBillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InBillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InBillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InBillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InBillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InBillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InBillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InBillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InBillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="tensOfBillions">
+            <div class="verticalWheelTensOfBillions">
+                <div class="number1InTensOfBillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InTensOfBillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InTensOfBillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InTensOfBillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InTensOfBillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InTensOfBillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InTensOfBillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InTensOfBillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InTensOfBillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InTensOfBillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="hundredsOfBillions">
+            <div class="verticalWheelHundredsOfBillions">
+                <div class="number1InHundredsOfBillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InHundredsOfBillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InHundredsOfBillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InHundredsOfBillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InHundredsOfBillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InHundredsOfBillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InHundredsOfBillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InHundredsOfBillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InHundredsOfBillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InHundredsOfBillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="zerosPlaceHolders" id="trillions">
+            <div class="verticalWheelTrillions">
+                <div class="number1InTrillions">
+                    <p class="odometerText">1</p>
+                </div>
+                <div class="number2InTrillions">
+                    <p class="odometerText">2</p>
+                </div>
+                <div class="number3InTrillions">
+                    <p class="odometerText">3</p>
+                </div>
+                <div class="number4InTrillions">
+                    <p class="odometerText">4</p>
+                </div>
+                <div class="number5InTrillions">
+                    <p class="odometerText">5</p>
+                </div>
+                <div class="number6InTrillions">
+                    <p class="odometerText">6</p>
+                </div>
+                <div class="number7InTrillions">
+                    <p class="odometerText">7</p>
+                </div>
+                <div class="number8InTrillions">
+                    <p class="odometerText">8</p>
+                </div>
+                <div class="number9InTrillions">
+                    <p class="odometerText">9</p>
+                </div>
+                <div class="number0InTrillions">
+                    <p class="odometerText">0</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
 </body>
 </html>
