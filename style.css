@@ -47,6 +47,7 @@ h1 {
     flex-direction: column-reverse;
     height: 100vh;
     transform: translateY(26.8vw);
+    transition: 0.2s;
 }
 
 .odometerText {

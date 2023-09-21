@@ -18,6 +18,7 @@ function numberToOdometer(number) {
 
     //map the amount of digits to the amount of odometer digits hide the rest
     let odometerDigits = document.getElementsByClassName("zerosPlaceHolders");
+
     for (let i = 0; i < odometerDigits.length; i++) {
         if (i < digits) {
             odometerDigits[i].style.display = "block";
@@ -31,34 +32,29 @@ function numberToOdometer(number) {
     //translateY the odometer digits to the number
     for (let i = 0; i < digitArray.length+1; i++){
         console.log("Setting " + digitArray[i] + " to " + i);
+
         odometerDigits[i].style.transform = "translateY(" + digitToPosition(parseInt(digitArray[i])+1) + "vw)";
+
+        // Get the all the p child of the odometer digit and set all of them to transparent except the one that is the number that is in focus
+        let pChildren = odometerDigits[i].getElementsByTagName("p");
+        for (let j = 0; j < pChildren.length; j++){
+            if (j == parseInt(digitArray[i])){
+                pChildren[j].style.opacity = "1";
+            } else {
+                pChildren[j].style.opacity = "0.2";
+            }
+        }
+        
     }
 }
 
 let zeroOffset = 26.8;
 let numberSpacing = 6;
 
+
+//translate the number to the position on the odometer
 function digitToPosition(number){
     return zeroOffset - (numberSpacing * number);
 }
 
-// function positionToDigit(position){
-//     return (zeroOffset - position) / numberSpacing;
-// }
 
-// // Function that linearly animates from one digitToPosition to another and returns the value
-// function animateDigitToPosition(start, end, duration) {
-//     let difference = end - start;
-//     let startTime = new Date().getTime();
-//     let endTime = startTime + duration;
-//     let current = start;
-//     let step = function () {
-//         let now = new Date().getTime();
-//         let remaining = Math.max((endTime - now) / duration, 0);
-//         current = end - (remaining * difference);
-//         return current;
-//     };
-//     return step();
-// }
-
-numberToOdometer(10231);
