@@ -3,6 +3,18 @@ let grandmas = 0;
 
 
 
+function cookieClick() {
+    cookies++;
+    numberToOdometer(cookies);
+}
+
+
+
+
+
+
+
+
 // Number to odometer
 function numberToOdometer(number) {
     //check to see how many digits the number has
