@@ -44,9 +44,9 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: 100vh;
-    transform: translateY(2.5vw);
+    transform: translateY(26.8vw);
 }
 
 .odometerText {
