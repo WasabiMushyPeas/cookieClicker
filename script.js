@@ -59,8 +59,8 @@ function numberToOdometer(number) {
     }
 }
 
-let zeroOffset = 26.8;
-let numberSpacing = 6;
+let zeroOffset = 33;
+let numberSpacing = 6.1;
 
 
 //translate the number to the position on the odometer
