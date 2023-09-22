@@ -44,6 +44,16 @@ p {
     margin-top: 5%;
     height: 45vh;
     border-radius: 5vw;
+    transition: 0.5s;
+}
+
+.cookieCounter:hover {
+    background-color: var(--accent);
+    cursor: pointer;
+}
+
+.cookieCounter:active {
+    scale: 0.95;
 }
 
 
@@ -66,6 +76,7 @@ p {
     margin-top: -0.2vw;
     margin-bottom: -0.2vw;
     opacity: 0;
+    user-select: none;
 }
 
 
