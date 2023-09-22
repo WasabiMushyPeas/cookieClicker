@@ -1,12 +1,33 @@
 let cookies = 0;
+
 let grandmas = 0;
+let grandmaCost = 10;
 
 
-
+// Cookie Clicker Button
 function cookieClick() {
     cookies++;
     numberToOdometer(cookies);
 }
+
+// Buy Grandma Button
+function buyGrandma(){
+    if (cookies >= grandmaCost){
+        cookies -= grandmaCost;
+        grandmas++;
+        // increase the cost of the next grandma by (1/10000)x^e
+        grandmaCost = Math.floor(1/10000 * Math.pow(grandmas, 2.718281828459045));
+        document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -61,7 +82,7 @@ function numberToOdometer(number) {
 }
 
 let zeroOffset = 33;
-let numberSpacing = 6.1;
+let numberSpacing = 5.99;
 
 
 //translate the number to the position on the odometer

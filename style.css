@@ -133,6 +133,121 @@ p {
     height: 100%;
     width: 85%;
     border-radius: 30px;
-    background-color: var(--accent);
+    background-color: var(--primary);
     z-index: 103;
+    opacity: 0.9;
+}
+
+.shopDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2%;
+    width: 80%;
+    border-radius: 30px;
+    background-color: var(--primary);
+    transition: 0.5s;
+    opacity: 0.9;
+}
+
+.shopTextDiv {
+    margin: 5%;
+}
+
+.shopButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: var(--primary);
+    user-select: none;
+    z-index: 101;
+    transition: 0.5s;
+    height: 5vw;
+    width: 30vw;
+}
+
+.shopButtonDiv:hover {
+    background-color: var(--accent);
+    cursor: pointer;
+}
+
+.shopButtonDiv:active {
+    scale: 0.9;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 85%;
+    margin: 5%;
+    border-radius: 30px;
+    background-color: var(--primary);
+    z-index: 104;
+    opacity: 0.9;
+}
+
+.statsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2%;
+    width: 80%;
+    border-radius: 30px;
+    background-color: var(--primary);
+    transition: 0.5s;
+    opacity: 0.9;
+}
+
+.statsTextDiv {
+    margin: 5%;
+}
+
+
+
+/* Items */
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 85%;
+    margin: 5%;
+    border-radius: 30px;
+    background-color: var(--primary);
+    z-index: 105;
+    opacity: 0.9;
+}
+
+.itemsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2%;
+    width: 80%;
+    border-radius: 30px;
+    background-color: var(--primary);
+    transition: 0.5s;
+    opacity: 0.9;
+}
+
+.itemsDiv:hover {
+    background-color: var(--accent);
+}
+
+.itemsTextDiv {
+    margin: 5%;
 }
