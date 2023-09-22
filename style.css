@@ -30,6 +30,13 @@ p {
     text-align: center;
 }
 
+.pageDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 /* Odometer */
 .cookieCounter {
@@ -42,6 +49,9 @@ p {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
+    padding: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
     height: 45vh;
     border-radius: 5vw;
     transition: 0.5s;
@@ -112,4 +122,17 @@ p {
 
 .cookieButtonDiv:active {
     scale: 0.8;
+}
+
+/* Shop */
+.shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 85%;
+    border-radius: 30px;
+    background-color: var(--accent);
+    z-index: 103;
 }
