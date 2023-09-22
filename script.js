@@ -2,6 +2,7 @@ let cookies = 0;
 let grandmas = 0;
 
 
+
 function cookieClick() {
     cookies++;
     numberToOdometer(cookies);
@@ -69,3 +70,4 @@ function digitToPosition(number){
 }
 
 
+numberToOdometer(cookies);
