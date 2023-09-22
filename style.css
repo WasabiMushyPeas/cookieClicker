@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
 :root {
-    --text: #1e0e0b;
-    --background: #fcf8f8;
-    --primary: #6f342a;
-    --secondary: #e6c3bc;
-    --accent: #9b493b;
+    --text: #000000;
+    --background: #ffffff;
+    --primary: #8fb3ff;
+    --secondary: #ebf1ff;
+    --accent: #d41d6d;
 }
 
 body {
@@ -20,6 +20,13 @@ h1 {
     color: var(--text);
     font-family: 'Ubuntu', sans-serif;
     font-size: 5vw;
+    text-align: center;
+}
+
+p {
+    color: var(--text);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2vw;
     text-align: center;
 }
 
