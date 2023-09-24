@@ -37,6 +37,22 @@ p {
     flex-direction: column;
 }
 
+/* Info */
+.info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1%;
+}
+
+
+.linkInfo {
+    text-decoration: none;
+    font-size: 2vw;
+    color: var(--text);
+}
+
+
 
 /* Odometer */
 .cookieCounter {
@@ -52,7 +68,7 @@ p {
     padding: 2%;
     padding-left: 10%;
     padding-right: 10%;
-    height: 45vh;
+    height: 20vw;
     border-radius: 5vw;
     transition: 0.5s;
 }

@@ -1,7 +1,12 @@
 let cookies = 0;
+let totalCookies = 0;
+let cookiesPerSecond = 0;
 
 let grandmas = 0;
 let grandmaCost = 10;
+
+// how many times per second the game loop runs
+let gameLoop = 2;
 
 
 function sleep(ms) {
@@ -12,6 +17,7 @@ function sleep(ms) {
 // Cookie Clicker Button
 function cookieClick() {
     cookies++;
+    totalCookies++;
     numberToOdometer(cookies);
 }
 
@@ -23,20 +29,22 @@ function buyGrandma(){
         console.log(grandmaCost);
         document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
         document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
-        document.getElementById("grandmaCost").innerHTML = "Buy Grandma " + grandmaCost.toString();
+        document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + grandmaCost.toString();
         document.getElementById("grandmaCost").style.fontSize = "2vw";
         numberToOdometer(cookies);
         grandmas++;
         cookies -= grandmaCost;
     }
+    updateCookiesPerSecond();
 }
 
 
 // Grandma Loop 
 async function grandmaLoop(){
     cookies += grandmas;
+    totalCookies += grandmas;
     numberToOdometer(cookies);
-    setTimeout(grandmaLoop, 500);
+    setTimeout(grandmaLoop, (1000/gameLoop));
 }
 
 
@@ -94,15 +102,29 @@ function numberToOdometer(number) {
         }
         
     }
+    updateTotalCookies();
 }
 
 let zeroOffset = 33;
-let numberSpacing = 5.99;
+let numberSpacing = 6.1;
 
 
 //translate the number to the position on the odometer
 function digitToPosition(number){
     return zeroOffset - (numberSpacing * number);
+}
+
+// Update the number of cookies per second
+function updateCookiesPerSecond(){
+    cookiesPerSecond = grandmas*gameLoop;
+    document.getElementById("amountOfCookiesPerSecond").innerHTML = cookiesPerSecond.toString() + " c/sec";
+    document.getElementById("amountOfCookiesPerSecond").style.fontSize = "2vw";
+}
+
+//Update the number of total cookies
+function updateTotalCookies(){
+    document.getElementById("amountOfCookies").innerHTML = "Total Cookies: " + totalCookies.toString();
+    document.getElementById("amountOfCookies").style.fontSize = "2vw";
 }
 
 
