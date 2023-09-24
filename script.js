@@ -4,6 +4,11 @@ let grandmas = 0;
 let grandmaCost = 10;
 
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 // Cookie Clicker Button
 function cookieClick() {
     cookies++;
@@ -13,16 +18,26 @@ function cookieClick() {
 // Buy Grandma Button
 function buyGrandma(){
     if (cookies >= grandmaCost){
-        cookies -= grandmaCost;
-        grandmas++;
-        // increase the cost of the next grandma by (1/10000)x^e
-        grandmaCost = Math.floor(1/10000 * Math.pow(grandmas, 2.718281828459045));
+        // increase the cost of the next grandma by ((1/10000)x^e)+10
+        grandmaCost = Math.floor((1/500 * Math.pow(grandmas, 2.718281828459045)) + 10);
+        console.log(grandmaCost);
         document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
+        document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
+        document.getElementById("grandmaCost").innerHTML = "Buy Grandma " + grandmaCost.toString();
+        document.getElementById("grandmaCost").style.fontSize = "2vw";
+        numberToOdometer(cookies);
+        grandmas++;
+        cookies -= grandmaCost;
     }
 }
 
 
-
+// Grandma Loop 
+async function grandmaLoop(){
+    cookies += grandmas;
+    numberToOdometer(cookies);
+    setTimeout(grandmaLoop, 500);
+}
 
 
 
@@ -92,3 +107,4 @@ function digitToPosition(number){
 
 
 numberToOdometer(cookies);
+grandmaLoop();
