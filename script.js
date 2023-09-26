@@ -7,6 +7,7 @@ let grandmaCost = 10;
 
 // how many times per second the game loop runs
 let gameLoop = 2;
+let transitionTime = 0.5;
 
 
 function sleep(ms) {
@@ -27,13 +28,13 @@ function buyGrandma(){
         // increase the cost of the next grandma by ((1/10000)x^e)+10
         grandmaCost = Math.floor((1/500 * Math.pow(grandmas, 2.718281828459045)) + 10);
         console.log(grandmaCost);
+        numberToOdometer(cookies);
+        grandmas++;
+        cookies -= grandmaCost;
         document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
         document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
         document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + grandmaCost.toString();
         document.getElementById("grandmaCost").style.fontSize = "2vw";
-        numberToOdometer(cookies);
-        grandmas++;
-        cookies -= grandmaCost;
     }
     updateCookiesPerSecond();
 }
@@ -41,13 +42,11 @@ function buyGrandma(){
 
 // Grandma Loop 
 async function grandmaLoop(){
-    cookies += grandmas;
-    totalCookies += grandmas;
-    numberToOdometer(cookies);
-    setTimeout(grandmaLoop, (1000/gameLoop));
+    if(grandmas>0){
+        cookieClick();
+    }
+    setTimeout(grandmaLoop, (1000/(grandmas+1)));
 }
-
-
 
 
 
@@ -91,6 +90,14 @@ function numberToOdometer(number) {
 
         odometerDigits[i].style.transform = "translateY(" + digitToPosition(parseInt(digitArray[i])+1) + "vw)";
 
+        // Based on how fast the digit is moving, change the transition time 
+        let tempTransitionTime = transitionTime - ((transitionTime * (i/(digitArray.length))));
+        // if(i == digitArray.length && cookiesPerSecond > 15) {
+        //     tempTransitionTime = 0;
+        // }
+        odometerDigits[i].style.transition = "transform " + tempTransitionTime.toString() + "s";
+
+
         // Get the all the p child of the odometer digit and set all of them to transparent except the one that is the number that is in focus
         let pChildren = odometerDigits[i].getElementsByTagName("p");
         for (let j = 0; j < pChildren.length; j++){
@@ -105,8 +112,8 @@ function numberToOdometer(number) {
     updateTotalCookies();
 }
 
-let zeroOffset = 33;
-let numberSpacing = 6.1;
+let zeroOffset = 32;
+let numberSpacing = 6;
 
 
 //translate the number to the position on the odometer
