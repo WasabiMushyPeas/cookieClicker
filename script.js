@@ -22,6 +22,7 @@ function cookieClick() {
     cookies++;
     totalCookies++;
     numberToOdometer(cookies);
+    saveGame();
 }
 
 // Buy Grandma Button
@@ -34,6 +35,7 @@ function buyGrandma(){
         cookies -= grandmaCost;
         updateGrandmas();
     }
+    saveGame();
     updateCookiesPerSecond();
 }
 
@@ -122,7 +124,7 @@ function updateCookiesPerSecond(){
 function updateGrandmas(){
     document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
     document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
-    document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + grandmaCost.toString();
+    document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + (Math.floor((1/500 * Math.pow(grandmas, 2.718281828459045)) + 10)).toString();
     document.getElementById("grandmaCost").style.fontSize = "2vw";
 }
 
@@ -140,7 +142,6 @@ function saveGame(){
     document.cookie = "cookies=" + cookies.toString() + ";" + expires + ";path=/";
     document.cookie = "grandmas=" + grandmas.toString() + ";" + expires + ";path=/";
     document.cookie = "totalCookies=" + totalCookies.toString() + ";" + expires + ";path=/";
-    alert("Game Saved!");
 }
 
 // Load the game from cookies
@@ -168,6 +169,11 @@ function loadGame(){
     updateGrandmas();
 }
 
-window.onbeforeunload = function(){
+
+
+window.onbeforeunload = closingCode;
+
+function closingCode(){
     saveGame();
+    return null;
 }
