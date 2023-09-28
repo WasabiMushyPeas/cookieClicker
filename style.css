@@ -42,7 +42,16 @@ p {
     position: fixed;
     top: 0;
     right: 0;
-    margin: 1%;
+    margin-top: 1%;
+    margin-right: 3%;
+}
+
+.info:hover {
+    cursor: pointer;
+}
+
+.svgs {
+    margin: 50%;
 }
 
 

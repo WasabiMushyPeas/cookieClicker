@@ -10,8 +10,10 @@ let gameLoop = 2;
 let transitionTime = 0.5;
 
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function startGame(){
+    loadGame();
+    numberToOdometer(cookies);
+    grandmaLoop();
 }
 
 
@@ -27,14 +29,10 @@ function buyGrandma(){
     if (cookies >= grandmaCost){
         // increase the cost of the next grandma by ((1/10000)x^e)+10
         grandmaCost = Math.floor((1/500 * Math.pow(grandmas, 2.718281828459045)) + 10);
-        console.log(grandmaCost);
         numberToOdometer(cookies);
         grandmas++;
         cookies -= grandmaCost;
-        document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
-        document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
-        document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + grandmaCost.toString();
-        document.getElementById("grandmaCost").style.fontSize = "2vw";
+        updateGrandmas();
     }
     updateCookiesPerSecond();
 }
@@ -47,14 +45,6 @@ async function grandmaLoop(){
     }
     setTimeout(grandmaLoop, (1000/(grandmas+1)));
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -128,12 +118,56 @@ function updateCookiesPerSecond(){
     document.getElementById("amountOfCookiesPerSecond").style.fontSize = "2vw";
 }
 
+// Update the number of grandmas
+function updateGrandmas(){
+    document.getElementById("amountOfGrandmas").innerHTML = "Grandmas: " + grandmas.toString();
+    document.getElementById("amountOfGrandmas").style.fontSize = "2vw";
+    document.getElementById("grandmaCost").innerHTML = "Buy Grandma ¢" + grandmaCost.toString();
+    document.getElementById("grandmaCost").style.fontSize = "2vw";
+}
+
 //Update the number of total cookies
 function updateTotalCookies(){
     document.getElementById("amountOfCookies").innerHTML = "Total Cookies: " + totalCookies.toString();
     document.getElementById("amountOfCookies").style.fontSize = "2vw";
 }
 
+// Save the game in cookies that expire in 5 years
+function saveGame(){
+    let d = new Date();
+    d.setTime(d.getTime() + (5*365*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = "cookies=" + cookies.toString() + ";" + expires + ";path=/";
+    document.cookie = "grandmas=" + grandmas.toString() + ";" + expires + ";path=/";
+    document.cookie = "totalCookies=" + totalCookies.toString() + ";" + expires + ";path=/";
+    alert("Game Saved!");
+}
 
-numberToOdometer(cookies);
-grandmaLoop();
+// Load the game from cookies
+function loadGame(){
+    let cookieArray = document.cookie.split(";");
+    for (let i = 0; i < cookieArray.length; i++){
+        let cookie = cookieArray[i].split("=");
+        //console.log(cookie);
+        if (cookie[0] == " cookies"){
+            cookies = parseInt(cookie[1]);
+            console.log(cookies);
+        } else if (cookie[0] == " grandmas"){
+            grandmas = parseInt(cookie[1]);
+            console.log(grandmas);
+        } else if (cookie[0] == " totalCookies"){
+            totalCookies = parseInt(cookie[1]);
+            console.log(totalCookies);
+        }
+        console.log(cookie[0] + " " + " i:" + i);
+    }
+
+    updateCookiesPerSecond();
+    updateTotalCookies();
+    numberToOdometer(cookies);
+    updateGrandmas();
+}
+
+window.onbeforeunload = function(){
+    saveGame();
+}
