@@ -45,7 +45,7 @@ async function grandmaLoop() {
         cookieClick();
     }
     if (grandmas > 50) {
-        cookies += (grandmas / 2) - 1;
+        cookies += (grandmas / 10) - 1;
         cookieClick();
     }
     setTimeout(grandmaLoop, (1000 / (grandmas + 1)));
@@ -55,6 +55,7 @@ async function grandmaLoop() {
 
 // Number to odometer
 function numberToOdometer(number) {
+    cookies = Math.floor(cookies);
     //check to see how many digits the number has
     let digits = number.toString().length;
     //create an array of digits
@@ -141,30 +142,26 @@ function saveGame() {
     let d = new Date();
     d.setTime(d.getTime() + (5 * 365 * 24 * 60 * 60 * 1000));
     let expires = "expires=" + d.toUTCString();
-    console.log(expires);
     document.cookie = "cookies=" + cookies.toString() + ";" + expires + ";path=/";
-    console.log("cookies=" + cookies.toString() + ";" + expires + ";path=/");
     document.cookie = "grandmas=" + grandmas.toString() + ";" + expires + ";path=/";
-    console.log("grandmas=" + grandmas.toString() + ";" + expires + ";path=/");
     document.cookie = "totalCookies=" + totalCookies.toString() + ";" + expires + ";path=/";
-    console.log("totalCookies=" + totalCookies.toString() + ";" + expires + ";path=/");
-    console.log("Saved game");
     console.log(document.cookie);
 }
 
 // Load the game from cookies
 function loadGame() {
     let cookieArray = document.cookie.split(";");
+    console.log(cookieArray);
     for (let i = 0; i < cookieArray.length; i++) {
         let cookie = cookieArray[i].split("=");
         //console.log(cookie);
-        if (cookie[0] == " cookies") {
-            cookies = parseInt(cookie[1]);
+        if (cookie[0] == "cookies") {
+            cookies = math.floor(parseInt(cookie[1]));
             console.log(cookies);
-        } else if (cookie[0] == " grandmas") {
+        } else if (cookie[0] == "grandmas") {
             grandmas = parseInt(cookie[1]);
             console.log(grandmas);
-        } else if (cookie[0] == " totalCookies") {
+        } else if (cookie[0] == "totalCookies") {
             totalCookies = parseInt(cookie[1]);
             console.log(totalCookies);
         }
